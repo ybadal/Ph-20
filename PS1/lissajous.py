@@ -5,6 +5,9 @@ import math
 import sys
 
 
+# Here's a comment to use as change for the git assignment.
+
+
 # We first define the sinusoid functions:
 def x(ax, fx, t):
     return ax*math.cos(2*math.pi*fx*t)

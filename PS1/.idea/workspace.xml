@@ -14,7 +14,36 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="lissajousnp.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lissajousnp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding>
+                <element signature="e#20#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="beats.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/beats.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="81">
+              <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+              <folding>
+                <element signature="e#20#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+>>>>>>> 2ea6c1a3ae28f3ed910c2a348a5694f10ca10f4b
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -52,8 +81,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope" />
       <pane id="Scratches" />
+=======
+>>>>>>> 2ea6c1a3ae28f3ed910c2a348a5694f10ca10f4b
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -68,6 +100,11 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="Scratches" />
+      <pane id="Scope" />
+>>>>>>> 2ea6c1a3ae28f3ed910c2a348a5694f10ca10f4b
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -256,6 +293,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/lissajousnp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
@@ -276,10 +314,18 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 2ea6c1a3ae28f3ed910c2a348a5694f10ca10f4b
     <entry file="file://$PROJECT_DIR$/lissajous.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="39" column="16" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
+<<<<<<< HEAD
+=======
+          <folding>
+            <element signature="e#20#31#0" expanded="false" />
+          </folding>
+>>>>>>> 2ea6c1a3ae28f3ed910c2a348a5694f10ca10f4b
         </state>
       </provider>
     </entry>
@@ -297,6 +343,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="39" column="16" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
+<<<<<<< HEAD
+=======
+          <folding>
+            <element signature="e#20#31#0" expanded="false" />
+          </folding>
+>>>>>>> 2ea6c1a3ae28f3ed910c2a348a5694f10ca10f4b
         </state>
       </provider>
     </entry>
@@ -314,6 +366,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="684">
           <caret line="39" column="16" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -321,8 +374,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
           <caret line="19" column="34" lean-forward="false" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+=======
           <folding>
-            <element signature="e#20#30#0" expanded="true" />
+            <element signature="e#20#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -330,7 +384,25 @@
     <entry file="file://$PROJECT_DIR$/lissajousnp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+>>>>>>> 2ea6c1a3ae28f3ed910c2a348a5694f10ca10f4b
+          <folding>
+            <element signature="e#20#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/lissajousnp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
           <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/beats.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+>>>>>>> 2ea6c1a3ae28f3ed910c2a348a5694f10ca10f4b
           <folding>
             <element signature="e#20#30#0" expanded="true" />
           </folding>
