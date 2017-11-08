@@ -1,0 +1,19 @@
+Integral: e^x from 0 to 1
+Expected Value = 1.71828182846
+Accuracy = 0.01
+Value = 1.7182818881
+Error = 5.96448117562e-08
+scipy quad result = 1.71828182846
+quad error = 1.90767604875e-14
+scipy romberg result = 1.71828182846
+romberg error = 3.30846461338e-14
+
+Integral: x^2 from 0 to 1
+Expected value = 0.333333333333
+Accuracy = 0.01
+Value =  0.333333333333
+Error = 0.0
+scipy quad result = 0.333333333333
+quad error = 3.70074341542e-15
+scipy romberg result = 0.333333333333
+romberg error = 0.0
