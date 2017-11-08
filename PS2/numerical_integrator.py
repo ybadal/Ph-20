@@ -46,7 +46,33 @@ def exp(x):
     return np.e**x
 
 
-#  We create an array of the errors for our numerical integrators and plot each for different N
+#  We create an array of the errors for our numerical integrators and plot each from stepnumber M to N
+def err_plot_large(M, N):
+    n_init_list = np.arange(N + 1)
+    n_step_list = np.delete(n_init_list, [0])[M:]
+    trap_error_list = np.zeros(len(n_step_list))
+    for i in range(len(n_step_list)):
+        trap_error_list[i] = -(np.e - 1 - int_trap(exp, 0, 1, n_step_list[i]))
+
+    simp_error_list = np.zeros(len(n_step_list))
+    for i in range(len(n_step_list)):
+        simp_error_list[i] = -(np.e - 1 - int_simp(exp, 0, 1, n_step_list[i]))
+
+    plt.xlabel('1/N')
+    plt.ylabel(r'$\delta x^{1/2}$')
+    plt.plot(1.0/n_step_list, np.abs(trap_error_list)**(1.0/2))
+    plt.savefig('trap_err_%(a)s_%(b)s.png' % {"a": M, "b": N})
+    plt.close()
+
+    plt.xlabel('1/N')
+    plt.ylabel(r'$\delta x^{1/4}$')
+    # print simp_error_list
+    # for j, e in enumerate(simp_error_list): print j, e, e**(1.0/4)
+    plt.plot(1.0/n_step_list, np.abs(simp_error_list)**(1.0/4))
+    plt.savefig('simp_err_%(a)s_%(b)s.png' % {"a": M, "b": N})
+    plt.close()
+
+
 def err_plot(N):
     n_init_list = np.arange(N + 1)
     n_step_list = np.delete(n_init_list, [0])
@@ -58,10 +84,19 @@ def err_plot(N):
     for i in range(len(n_step_list)):
         simp_error_list[i] = -(np.e - 1 - int_simp(exp, 0, 1, n_step_list[i]))
 
-    plt.plot(1.0/n_step_list, trap_error_list**(1.0/2))
-    plt.savefig('trap_err.png')
+    plt.xlabel('1/N')
+    plt.ylabel(r'$\delta x^{1/2}$')
+    plt.plot(1.0/n_step_list, np.abs(trap_error_list)**(1.0/2))
+    plt.savefig('trap_err_%s.png' % N)
     plt.close()
 
-    plt.plot(1.0/n_step_list, simp_error_list**(1.0/4))
-    plt.savefig('simp_err.png')
+    plt.xlabel('1/N')
+    plt.ylabel(r'$\delta x^{1/4}$')
+    # print simp_error_list
+    # for j, e in enumerate(simp_error_list): print j, e, e**(1.0/4)
+    plt.plot(1.0/n_step_list, np.abs(simp_error_list)**(1.0/4))
+    plt.savefig('simp_err_%s.png' % N)
     plt.close()
+
+
+err_plot_large(40000, 50000)
