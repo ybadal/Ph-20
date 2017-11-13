@@ -10,6 +10,7 @@
     \vskip0.5em}%
 }
 
+\usepackage{graphicx}
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Heading
@@ -66,4 +67,79 @@ The global error of Simpson's Formula is approximately
 -f''''(\xi)\frac{h_N^5}{5} = -(b-a)f''''(\xi)\frac{h_N^4}{5}
 \]
 where $\xi \in [a,b]$. Therefore the Extended Simpson Formula is globally of fourth order in $h_N$.
+\newpage
+
+\section{Accuracy of Numerical Integration Methods}
+\subsection{Trapezoid Method - Global Error Behavior with respect to N}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.80]{trap_err_5000.png}
+\caption{Error $\delta x^{\frac{1}{2}}$ plotted against 1/N.}
+\label{trap_err}
+\end{figure}
+This plot of the square root of the global error w.r.t. $\frac{1}{N}$ clearly shows the global second order in $h_N$ behavior - the plot of $\delta x^{\frac{1}{2}}$ against $\frac{1}{N}$ is only linear if the global error $\delta x$ is $O(h_N^2)$.
+
+\newpage
+
+\subsection{Simpson's Method - Global Error Behavior with respect to N}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.80]{simp_err_5000.png}
+\caption{Error $\delta x^{\frac{1}{4}}$ plotted against 1/N.}
+\label{simp_err}
+\end{figure}
+This plot of the square root of the global error w.r.t. $\frac{1}{N}$ clearly shows the global fourth order in $h_N$ behavior - the plot of $\delta x^{\frac{1}{4}}$ against $\frac{1}{N}$ is only linear if the global error $\delta x$ is $O(h_N^4)$.
+\newpage
+
+\subsection{Error stops decreasing for large N}
+We observe that for very large N (small $\frac{1}{N}$), the global error for the Simpson method stops increasing. We observe this by taking the plot above, but for N ranging from 500 to 5000 and observing that the global error plot becomes dense.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.80]{simp_err_500_5000.png}
+\caption{Global error for N from 500 to 5000 (Simpson's Method)}
+\label{simp_dense}
+\end{figure}
+It is possible that at this point truncation errors become too large for higher N to increase accuracy. However, the Trapezoid method fails to stop increasing in accuracy even for higher N. This is because the Trapezoid method is less accurate to begin with, and truncation errors still do not matter even for such high N (as shown by this plot for N ranging from 40000 to 50000):
+\newpage
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.80]{trap_err_40000_50000.png}
+\caption{Global error for N from 40000 to 50000 (Trapezoid Method)}
+\label{trap_no_break}
+\end{figure}
+
+For even higher N, truncations will begin to matter again, but for some reason my PC freezes when I try to run the script for higher N so I have not been able to generate a dense plot for the Trapezoid error.
+\newpage
+
+\section{Other integration methods}
+\subsection{Integrating $e^x$ from 0 to 1}
+Expected Value = 1.71828182846 \\
+Accuracy requested = 0.01 \\
+Result from our routine = 1.7182818881 \\
+Error = 5.96448117562e-08 \\
+
+
+Scipy quad result = 1.71828182846 \\
+Scipy quad error = 1.90767604875e-14 \\
+
+
+Scipy Romberg result = 1.71828182846 \\
+Scipy Romberg error = 3.30846461338e-14 \\
+
+\subsection{Integrating $x^2$ from 0 to 1}
+Expected Value = 0.333333333333 \\
+Accuracy requested = 0.01 \\
+Result from our routine = 0.333333333333 \\
+Error = 0.0 \\
+
+
+Scipy quad result = 0.333333333333 \\
+Scipy quad error = 3.70074341542e-15 \\
+
+
+Scipy Romberg result = 0.333333333333 \\
+Scipy Romberg error = 0.0 \\
 \end{document}
