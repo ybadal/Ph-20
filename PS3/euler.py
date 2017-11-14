@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib import rcParams
 
+rcParams.update({'figure.autolayout': True})
 
 def euler_plot(x_0, v_0, h, t):
     N = int(t/h)
@@ -65,3 +67,47 @@ def euler_err(h, t):
     plt.plot(t_arr, v_err)
     plt.savefig('x_err_and_v_err_plot_%(a)s_%(b)s_%(c)s_%(d)s.png' % {"a": 1, "b": 0, "c": h, "d": t})
     plt.close()
+
+
+def max_x_err(h):
+    """Maximum x error when solving up to t=20"""
+    t = 20
+    N = int(t/h)
+    x_arr = np.zeros(N + 1)
+    v_arr = np.zeros(N + 1)
+    t_arr = np.arange(N + 1, dtype=float)
+
+    t_arr *= float(h)
+
+    x_arr[0] = 1
+    v_arr[0] = 0
+
+    for i in range(len(t_arr) - 1):
+        x_arr[i + 1] = float(x_arr[i]) + float(h)*float(v_arr[i])
+        v_arr[i + 1] = float(v_arr[i]) - float(h)*float(x_arr[i])
+
+    x_err = np.zeros(N + 1)
+
+    for i in range(len(t_arr)):
+        x_err[i] = np.cos(t_arr[i]) - x_arr[i]
+   
+    return np.amax(x_err)
+
+
+def err_behavior(h0, k):
+    "Plotting max x error for h0/2^j; j = 0,1,2,...,k when solving up to t=20"""
+    err_array = np.zeros(k+1)
+    h_array = np.zeros(k+1)
+
+    for i in range(k):
+        err_array[i] = max_x_err(float(h0/(2**i)))
+        h_array[i] = float(h0/(2**i))
+
+    plt.xlabel('h')
+    plt.ylabel('$max[x_{analytic}(t_i) - x_i]$')
+    plt.plot(h_array, err_array)
+    plt.savefig('err_behavior_%(a)s_%(b)s_%(c)s.png' % {"a": h0, "b": k, "c": 20})
+    plt.close()
+
+err_behavior(0.01, 4)
+
