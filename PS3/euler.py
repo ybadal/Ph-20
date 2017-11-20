@@ -109,5 +109,58 @@ def err_behavior(h0, k):
     plt.savefig('err_behavior_%(a)s_%(b)s_%(c)s.png' % {"a": h0, "b": k, "c": 20})
     plt.close()
 
-err_behavior(0.01, 4)
+
+def euler_energy(x_0, v_0, h, t):
+    N = int(t/h)
+    x_arr = np.zeros(N + 1)
+    v_arr = np.zeros(N + 1)
+    t_arr = np.arange(N + 1, dtype=float)
+
+    t_arr *= float(h)
+
+    x_arr[0] = x_0
+    v_arr[0] = v_0
+
+    for i in range(len(t_arr) - 1):
+        x_arr[i + 1] = float(x_arr[i]) + float(h)*float(v_arr[i])
+        v_arr[i + 1] = float(v_arr[i]) - float(h)*float(x_arr[i])
+
+    energy_arr = x_arr**2 + v_arr**2
+
+    plt.xlabel('t')
+    plt.ylabel('E')
+    plt.plot(t_arr, energy_arr)
+    plt.savefig('energy_%(a)s_%(b)s_%(c)s_%(d)s.png' % {"a": x_0, "b": v_0, "c": h, "d": t})
+    plt.close()
+
+
+def euler_implicit_plot(x_0, v_0, h, t):
+    N = int(t/h)
+    x_arr = np.zeros(N + 1)
+    v_arr = np.zeros(N + 1)
+    t_arr = np.arange(N + 1, dtype=float)
+
+    t_arr *= float(h)
+
+    x_arr[0] = x_0
+    v_arr[0] = v_0
+
+    for i in range(len(t_arr) - 1):
+        x_arr[i + 1] = float(1/(h**2 + 1))*(float(x_arr[i]) + float(h)*float(v_arr[i]))
+        v_arr[i + 1] = float(1/(h**2 + 1))*(float(v_arr[i]) - float(h)*float(x_arr[i]))
+
+    plt.figure(1)
+    plt.subplot(211)
+    plt.xlabel('t')
+    plt.ylabel('x')
+    plt.plot(t_arr, x_arr)
+
+    plt.subplot(212)
+    plt.xlabel('t')
+    plt.ylabel('v')
+    plt.plot(t_arr, v_arr)
+    plt.savefig('x_and_v_plot_implicit_%(a)s_%(b)s_%(c)s_%(d)s.png' % {"a": x_0, "b": v_0, "c": h, "d": t})
+    plt.close()
+
+euler_implicit_plot(1, 0, 0.01, 20)
 
