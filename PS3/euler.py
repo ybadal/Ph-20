@@ -279,5 +279,105 @@ def implicit_euler_energy(x_0, v_0, h, t):
     plt.close()
 
 
-implicit_err_behavior(0.01, 4)
+def euler_phase(x_0, v_0, h, t):
+    N = int(t/h)
+    x_arr = np.zeros(N + 1)
+    v_arr = np.zeros(N + 1)
+
+    x_arr[0] = x_0
+    v_arr[0] = v_0
+
+    for i in range(len(x_arr) - 1):
+        x_arr[i + 1] = float(x_arr[i]) + float(h)*float(v_arr[i])
+        v_arr[i + 1] = float(v_arr[i]) - float(h)*float(x_arr[i])
+
+    plt.xlabel('x')
+    plt.ylabel('v')
+    plt.plot(x_arr, v_arr)
+    plt.axes().set_aspect('equal')
+    plt.savefig('euler_phase_space_%(a)s_%(b)s_%(c)s_%(d)s.png' % {"a": x_0, "b": v_0, "c": h, "d": t})
+    plt.close()
+
+
+def implicit_euler_phase(x_0, v_0, h, t):
+    N = int(t/h)
+    x_arr = np.zeros(N + 1)
+    v_arr = np.zeros(N + 1)
+
+    x_arr[0] = x_0
+    v_arr[0] = v_0
+
+    for i in range(len(x_arr) - 1):
+        x_arr[i + 1] = float(1/(h**2 + 1))*(float(x_arr[i]) + float(h)*float(v_arr[i]))
+        v_arr[i + 1] = float(1/(h**2 + 1))*(float(v_arr[i]) - float(h)*float(x_arr[i]))
+
+    plt.xlabel('x')
+    plt.ylabel('v')
+    plt.plot(x_arr, v_arr)
+    plt.axes().set_aspect('equal')
+    plt.savefig('implicit_euler_phase_space_%(a)s_%(b)s_%(c)s_%(d)s.png' % {"a": x_0, "b": v_0, "c": h, "d": t})
+    plt.close()
+
+
+def symplectic_euler_phase(x_0, v_0, h, t):
+    N = int(t/h)
+    x_arr = np.zeros(N + 1)
+    v_arr = np.zeros(N + 1)
+
+    x_arr[0] = x_0
+    v_arr[0] = v_0
+
+    for i in range(len(x_arr) - 1):
+        x_arr[i + 1] = float(x_arr[i]) + float(h)*float(v_arr[i])
+        v_arr[i + 1] = float(v_arr[i]) - float(h)*float(x_arr[i+1])
+
+    plt.xlabel('x')
+    plt.ylabel('v')
+    plt.plot(x_arr, v_arr)
+    plt.axes().set_aspect('equal')
+    plt.savefig('symplectic_euler_phase_space_%(a)s_%(b)s_%(c)s_%(d)s.png' % {"a": x_0, "b": v_0, "c": h, "d": t})
+    plt.close()
+
+
+def analytic_phase(x_0, v_0, h, t):
+    N = int(t/h)
+    t_arr = np.arange(N + 1, dtype=float)
+
+    t_arr *= float(h)
+
+    x_arr = np.cos(t_arr)
+    v_arr = -np.sin(t_arr)
+
+    plt.xlabel('x')
+    plt.ylabel('v')
+    plt.plot(x_arr, v_arr)
+    plt.axes().set_aspect('equal')
+    plt.savefig('analytic_phase_space_%(a)s_%(b)s_%(c)s_%(d)s.png' % {"a": x_0, "b": v_0, "c": h, "d": t})
+    plt.close()
+
+
+def symplectic_euler_energy(x_0, v_0, h, t):
+    N = int(t/h)
+    x_arr = np.zeros(N + 1)
+    v_arr = np.zeros(N + 1)
+    t_arr = np.arange(N + 1, dtype=float)
+
+    x_arr[0] = x_0
+    v_arr[0] = v_0
+    t_arr *= float(h)
+
+    for i in range(len(x_arr) - 1):
+        x_arr[i + 1] = float(x_arr[i]) + float(h)*float(v_arr[i])
+        v_arr[i + 1] = float(v_arr[i]) - float(h)*float(x_arr[i+1])
+
+    energy_arr = x_arr**2 + v_arr**2
+
+    plt.xlabel('t')
+    plt.ylabel('E')
+    plt.plot(t_arr, energy_arr)
+    plt.savefig('symplectic_energy_%(a)s_%(b)s_%(c)s_%(d)s.png' % {"a": x_0, "b": v_0, "c": h, "d": t})
+    plt.close()
+
+
+symplectic_euler_energy(1, 0, 0.01, 20)
 
