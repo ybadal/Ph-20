@@ -1,0 +1,10 @@
+euler_plot
+euler_err
+euler_energy
+euler_implicit_plot
+implicit_euler_energy
+euler_phase
+implicit_euler_phase
+symplectic_euler_phase
+analytic_phase
+symplectic_euler_energy
